@@ -10,9 +10,11 @@
 * */
 
 const gameTitle = 'Papier Kamień czy Nożyce ?!';
+//const gameTitle = 'Papier <span style="color: red">Kamień</span> czy Nożyce ?!';
 
 const h1element = document.querySelector('h1#game-title');
 h1element.textContent = gameTitle;
+// h1element.innerHTML = 'Wtedy rozumie <em>HTML</em>'
 
 // Event listener możesz podpiąć do dowolnego elementu,
 // do którego masz referencje:
