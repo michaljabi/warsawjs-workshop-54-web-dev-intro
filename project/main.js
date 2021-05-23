@@ -31,7 +31,7 @@ const btnPaper = document.getElementById('btn-paper');
 const btnRock = document.querySelector('#btn-rock');
 const btnScissors = document.querySelector('#btn-scissors');
 
-console.log(btnPaper, btnRock, btnScissors)
+// console.log(btnPaper, btnRock, btnScissors)
 
 /*
     Zadanie 3:
@@ -39,15 +39,45 @@ console.log(btnPaper, btnRock, btnScissors)
     odpowiednie wartości w zależności od wyboru: rock, paper, scissors
 */
 
+const pcChose = 'paper';
+
 btnPaper.addEventListener('click', function() {
     console.log('paper')
+    if(pcChose === 'paper') {
+        console.log('REMIS!')
+    } else if(pcChose === 'scissors') {
+        console.log('PRZEGRANA !')
+    } else {
+        console.log('WYGRANA !')
+    }
 });
 
 btnRock.addEventListener('click', function() {
     console.log('rock')
+    if(pcChose === 'rock') {
+        console.log('REMIS!')
+    } else if(pcChose === 'scissors') {
+        console.log('PRZEGRANA !')
+    } else {
+        console.log('WYGRANA !')
+    }
 });
 
 btnScissors.addEventListener('click', function() {
     console.log('scissors')
+    if(pcChose === 'scissors') {
+        console.log('REMIS!')
+    } else if(pcChose === 'rock') {
+        console.log('PRZEGRANA !')
+    } else {
+        console.log('WYGRANA !')
+    }
 });
+
+/*
+    Zadanie 4:
+    Zefiniuj funkcję - która będzie przyjmować co wybrał użytkownik.
+    Pod nazwanym parametrem będziemy mieć 'rock' / 'paper' lub 'scissors'
+    -> Pokaż "przesłaną" wartość na console.log()
+*/
 
