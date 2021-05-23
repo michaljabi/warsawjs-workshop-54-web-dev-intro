@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>t001 -- Change text</title>
+    <style>
+        body {
+            font-family: "Segoe UI", "Roboto", "Arial", sans-serif;
+            padding: 0;
+            margin: 0;
+            font-size: 16pt;
+        }
+        .container {
+            max-width: 920px;
+            margin: 3em auto;
+        }
+        .user-info {
+          list-style-type: none;
+        }
+        .user-info-row {
+            margin: 0;
+            padding: 0.5em;
+            border: 1px solid #a35464;
+            border-radius: 5px;
+            display: flex;
+        }
+        .user-info-row > div:first-child {
+            width: 200px;
+            text-align: right;
+            padding-right: 1em;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section class="container">
+            <h4>Super User</h4>
+            <ul class="user-info">
+                <li class="user-info-row">
+                    <div>imię:</div>
+                    <div></div>
+                </li>
+                <li class="user-info-row">
+                    <div>nazwisko:</div>
+                    <div></div>
+                </li>
+                <li class="user-info-row">
+                    <div>rola:</div>
+                    <div></div>
+                </li>
+                <li class="user-info-row">
+                    <div>zalogowany:</div>
+                    <div></div>
+                </li>
+            </ul>
+        </section>
+    </main>
+    <script>
+         /*
+         * ### Zadanie:
+         *
+         * Korzystając z zapisanych w JavaScript danych o użytkowniku (userData),
+         * Pokaż te informacje na widoku HTML:
+         *
+            <ul class="user-info">
+                <li class="user-info-row">
+                    <div>imię:</div>
+                    <div>Jan</div>
+                </li>
+                <li class="user-info-row">
+                    <div>nazwisko:</div>
+                    <div>Nowak</div>
+                </li>
+                <li class="user-info-row">
+                    <div>rola:</div>
+                    <div>administrator</div>
+                </li>
+                <li class="user-info-row">
+                    <div>zalogowany:</div>
+                    <div>TAK</div>
+                </li>
+            </ul>
+        *
+        *  - możesz modyfikować HTML - jednak korzystaj z danych z JS:
+        *
+        *  Jeśli uważasz za potrzebne - użyj w HTML odpowiednich atrybutów,
+        *  aby łatwiej było określić w jakie miejsca wpisać wartości poniżej
+        *
+         * */
+
+         const userData = {
+           name: 'Jan',
+           lastName: 'Nowak',
+           role: 'administrator',
+           isAuth: true
+         }
+
+    </script>
+</body>
+</html>

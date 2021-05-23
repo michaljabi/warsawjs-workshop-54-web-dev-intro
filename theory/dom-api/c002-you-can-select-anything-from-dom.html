@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>c002 you-can-select-anything-from-dom</title>
+    <style>
+        h1 {
+            background-color: #d4b5b5;
+        }
+        .box {
+            border: 1px solid #4d8709;
+            padding: 5px;
+        }
+        #para-1 {
+            margin: 20px;
+            text-decoration: underline;
+        }
+        input[name] {
+            font-size: 2em;
+        }
+        /*
+            https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors
+            https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Values_and_units#lengths
+        */
+    </style>
+</head>
+<body>
+   <h1>Moje</h1>
+   <div class="box">Elementy</div>
+   <p id="para-1">Na DOM</p>
+   <input name="sample-input">
+   <input title="no name">
+   <script>
+       /*
+       * document.querySelector
+       * https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector
+       *
+       * pozwala nam na zaznaczenie dowolnego elementu na DOM używając selektorów,
+       * dokładnie w ten sam sposób jakbyśmy robili to w klasycznym CSS
+       *
+       * Dla przykładu powyżej masz reguły css przypisane do poszczególnych elementów,
+       * określone są one (reguły) za pomocą odpowiednich selektorów CSS.
+       * To dzięki nim przeglądarka dokładnie wie jakie elementy ma stylować
+       *
+       * Teraz zauważ jak zachowuje się .querySelector - będzie używał dokładnie tych samych
+       * zapisów, aby podać nam referencje po stronie JavaScript do elementów DOM.
+       *
+       * Będziemy wtedy operować na pojedynczych instancjach:
+       * */
+       const h1Element = document.querySelector('h1');
+       console.log(h1Element.outerHTML) // pokazuje cały HTML elementu jako string
+
+       const boxClassElement = document.querySelector('.box');
+       console.log(boxClassElement.outerHTML)
+
+       const para1IdElement = document.querySelector('#para-1');
+       console.log(para1IdElement.outerHTML)
+
+       const namedInputElement = document.querySelector('input[name]');
+       console.log(namedInputElement.outerHTML)
+
+       // ok, jak to mówią "so far so good"
+       // co się jednak stanie jeśli nasz selektor jest na tyle "ogólny",
+       // że odpowiada kilku elementom na stornie (np. mamy tam 2x input)
+
+       const whichInputWillIBe = document.querySelector('input');
+       console.log('Znaleziony input to:', whichInputWillIBe.outerHTML);
+
+       // Jak widzimy, jedynie pierwszy z brzegu...
+
+       // Co jednak robić jeśli mamy tego typu sytuacje - że wiemy że elementów spełniających
+       // dane kryteria jest więcej na stronie i chcemy je wszystkie ?
+       // Musimy użyć innej metody na document: .querySelectorAll
+       // https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll
+
+       const allInputsOnSite = document.querySelectorAll('input');
+       console.log(allInputsOnSite);
+   </script>
+</body>
+</html>

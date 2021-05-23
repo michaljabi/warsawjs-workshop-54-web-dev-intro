@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>t003 -- Welcome to my Event</title>
+    <style>
+        body {
+            font-family: "Segoe UI", "Roboto", "Arial", sans-serif;
+            padding: 0;
+            margin: 0;
+            font-size: 16pt;
+        }
+        .container {
+            max-width: 920px;
+            margin: 3em auto;
+        }
+        .banner {
+            background-color: #cd661c;
+            padding: 1em;
+            color: white;
+            text-align: center;
+        }
+        .banner::before{
+            content: '--- ';
+        }
+        .banner::after{
+            content: ' ---';
+        }
+    </style>
+</head>
+<body>
+    <main class="container">
+         <header class="banner"></header>
+    </main>
+    <script>
+      /*
+      * ### Zadanie:
+      *
+      * Korzystając z tablicy mySlogans, zmieniaj tekst w header.banner,
+      * tak - aby po wystąpieniu na nim event'ów: mouseover oraz mouseout,
+      * jego tekst zmieniał się w kolejności - tak jak elementy w tablicy mySlogans
+      *
+      * Wyświetlając :
+      *
+      * -- To jest --
+      * potem:
+      * -- moja --
+      * potem:
+      * -- nowa --
+      *
+      * itd.
+      *
+      * Po natrafieniu na ostatni tekst w tablicy - robimy zapętlenie, czyli wracamy do początku:
+      * -- To jest --
+      *
+      * itd..
+      *
+      * W tym układzie teks powinien zmieniać się w momencie najechania i zjechania kursorem z obiektu bannera.
+      * */
+
+      const mySlogans = ['To jest', 'moja', 'nowa', 'promocja'];
+
+
+    </script>
+</body>
+</html>

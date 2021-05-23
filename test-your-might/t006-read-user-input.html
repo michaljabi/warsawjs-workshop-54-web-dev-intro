@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>t007 -- Read user input</title>
+    <style>
+        body {
+            font-family: "Segoe UI", "Roboto", "Arial", sans-serif;
+            padding: 0;
+            margin: 0;
+            font-size: 16pt;
+        }
+        .container {
+            max-width: 920px;
+            margin: 3em auto;
+        }
+        .list {
+            list-style-type: none;
+        }
+        .list-item {
+            margin: 0;
+            padding: 0.5em;
+            border: 1px solid #5f5f5f;
+            border-radius: 5px;
+            display: flex;
+        }
+        .input-control {
+            width: 100%;
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <main class="container">
+        <h3>Lista zakupów:</h3>
+        <ul class="list">
+        </ul>
+        <div>
+            <label>
+                Dodaj element:
+                <input name="item" class="input-control">
+            </label>
+        </div>
+    </main>
+    <script>
+        /*
+        * Hint:
+        * - w tym zadaniu przyda Ci się event: keydown
+        *
+        * ### Zadanie
+        *
+        * Po wpisaniu tekstu + przyciśnięciu "Enter"
+        * Pokazuj nowe elementy na liście z zakupami wraz z numeracją:
+        * np:
+        *
+            <h3>Lista zakupów:</h3>
+            <ul class="list">
+                <li class="list-item">1. Mleko</li>
+                <li class="list-item">2. Jajka</li>
+                <li class="list-item">3. Chleb</li>
+            </ul>
+        *
+        * Po każdym wpisie czyść zawartość input'a - aby User dalej mógł wpisywać dane na listę
+        *
+        * ### Zadanie dodatkowe:
+        * - spraw aby po każdym dopisaniu elementu był on również wpisany jako "dane" w JavaScript
+        * i dostępny z poziomu JS
+        * */
+    </script>
+</body>
+</html>

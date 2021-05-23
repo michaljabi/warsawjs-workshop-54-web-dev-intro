@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>c005 interactive-style-and-classes</title>
+    <style>
+        .text-blue {
+            color: dodgerblue;
+        }
+        .text-green {
+            color: darkgreen;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section>
+            <button id="btn-inc">Powiększ tytuł</button>
+            <button id="btn-dec">Zmniejsz tytuł</button>
+        </section>
+        <header>
+            <h1 style="font-size: 30px">Przykładowy tytuł strony</h1>
+        </header>
+        <section>
+            <p id="class-styled-paragraph">Stylowanie elementu za pomocą zmiany klasy CSS !</p>
+        </section>
+        <section>
+            <label>
+                Ustaw klasę paragrafu:
+                <select name="choose-class">
+                    <option value="">Brak</option>
+                    <option value="text-blue">Niebieska</option>
+                    <option value="text-green">Zielona</option>
+                </select>
+            </label>
+        </section>
+        <section>
+            <p id="style-property-styled-paragraph">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, ad atque blanditiis doloribus dolorum eaque exercitationem facilis inventore iste maxime molestiae non quis sequi similique suscipit tenetur totam vitae, voluptas?
+            </p>
+        </section>
+    </main>
+    <script>
+        /*
+        * Możemy sterować wyglądem naszego DOM nie tylko za pomocą className.
+        *
+        * Takie możliwości daje nam również pole: .style w HTMLElement
+        * Możliwe jest również sterowanie poszczególnymi klasami css za pomocą .classList
+        *
+        * https://developer.mozilla.org/en-US/docs/Web/API/ElementCSSInlineStyle/style
+        *
+        * Zauważ, że zmienia się tutaj sposób zapisu reguł z kebab-case na camelCase:
+        * Przykładowo reguła w css:
+        * font-size: 20px;
+        *
+        * To teraz w JavaScript:
+        * element.style.fontSize = '20px';
+        *
+        * https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Properties_Reference
+        * */
+
+        const h1 = document.querySelector('h1');
+        const btnInc = document.querySelector('#btn-inc');
+        const btnDec = document.querySelector('#btn-dec');
+
+        console.log('Odczytanie aktualnie zapisanej wartości fontSize:', h1.style.fontSize);
+        let theSize = parseInt(h1.style.fontSize); // zapisanie w postaci numerycznej
+        btnInc.addEventListener('click', () => {
+	        theSize++; // zwiększ czcionkę o 1
+            h1.style.fontSize = theSize + 'px'; // aktualizacja wartości czcionki + jednostki
+        }) // zapis () => {} to wyrażenie funkcji arrow
+
+        // Implementacja logiki dla zmniejszania:
+        btnDec.addEventListener('click', () => {
+	        theSize--;
+	        h1.style.fontSize = theSize + 'px';
+        })
+
+        const pStyledUsingStyle = document.querySelector('p#style-property-styled-paragraph');
+
+        pStyledUsingStyle.style.backgroundColor = '#949ad2';
+        pStyledUsingStyle.style.padding = '20px 10px';
+        pStyledUsingStyle.style.textAlign = 'center';
+        pStyledUsingStyle.style.fontFamily = '"Tahoma", "Arial", sans-serif'
+
+        const pClassStyled = document.querySelector('p#class-styled-paragraph');
+        const selectControl = document.querySelector('select[name="choose-class"]');
+
+        selectControl.addEventListener('change', (ev) => {
+        	console.log(ev.target.value);
+        	pClassStyled.className = ev.target.value;
+        })
+
+        // Klasami CSS na elemencie możemy również zarządzać za pomocą obiektu:
+        // classList
+        // Daje nam to większą kontrolę nad pojedynczymi klasami dodanymi do obiektu
+        // - wykorzystując metody: .add, .contains, .toggle, .remove
+        //  https://developer.mozilla.org/en-US/docs/Web/API/Element/classList
+        // Dokumentacja metod:
+        // https://developer.mozilla.org/en-US/docs/Web/API/DOMTokenList
+
+        // odkomentuj kod aby sprawdzić jego działanie:
+
+        /*
+            h1.classList.add('text-green');
+            h1.classList.add('text-blue');
+            if(h1.classList.contains('text-green')) {
+                h1.classList.remove('text-green');
+            }
+            h1.classList.toggle('text-green');
+        */
+    </script>
+</body>
+</html>

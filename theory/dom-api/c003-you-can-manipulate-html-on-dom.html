@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>c003 you-can-manipulate-html-on-dom</title>
+    <style>
+       .red-text {
+         color: darkred;
+       }
+    </style>
+</head>
+<body>
+    <div>
+      <header>
+        <h1>Witaj w przykładzie
+          <span>Najedź aby zobaczyć tytuł</span>
+        </h1>
+      </header>
+      <input> <button>OK!</button>
+      <p id="paragraph-1"></p>
+    </div>
+    <script>
+      /*
+      * Posiadając referencję do danego elementu DOM,
+      * możemy dowolnie manipulować tym co finalnie pojawi się na stronie,
+      * przykładowo dodając atrybuty HTML do elementów
+      * i zmieniając / dodając ich klasy z CSS
+      * */
+      const h1 = document.querySelector('h1');
+      // mając element h1 - można zaznaczyć jego "potomka" - upewniając się że
+      // to co zaznaczamy, to element należący do h1 !!!:
+      const span = h1.querySelector('span'); // zauważ że selector jest po przez element h1
+      const input = document.querySelector('input');
+      const p = document.querySelector('p#paragraph-1');
+      const btn = document.querySelector('button');
+
+      // Mając wszystkie selector'y, robimy kilka zmian:
+
+      span.setAttribute('title', 'Tytuł dostępny po najechaniu na element 😃');
+      input.value = 'Nowa wartość w polu!';
+      input.setAttribute('placeholder', 'Wpisz coś proszę...')
+
+      // zobacz co się stanie jak zmienisz na "innerText" lub "textContent":
+      p.innerHTML = 'To jest moja treść + <em>HTML</em> który zostaje dodany do <code>element</code> i zinterpretowany przez przeglądarkę';
+      p.className = 'red-text';
+
+      btn.setAttribute('name', 'ok-button');
+
+      /*
+      * Jeśli wykorzystasz narzędzia DEV i "zbadasz" strukturę HTML,
+      * okaże się że będzie ona wyglądać następująco:
+
+        <div>
+          <header>
+            <h1>Witaj w przykładzie
+              <span title="Tytuł dostępny po najechaniu na element 😃">Najedź aby zobaczyć tytuł</span>
+            </h1>
+          </header>
+          <input placeholder="Wpisz coś proszę...">
+          <button name="ok-button">OK!</button>
+          <p id="paragraph-1" class="red-text">
+            To jest moja treść + <em>HTML</em> który zostaje dodany do <code>element</code> i zinterpretowany przez przeglądarkę
+          </p>
+        </div>
+
+       * Porównaj to z kodem HTML który napisany był początkowo
+       *
+       * https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute
+       * https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML
+       * https://developer.mozilla.org/en-US/docs/Web/API/Element/className
+      * */
+    </script>
+</body>
+</html>

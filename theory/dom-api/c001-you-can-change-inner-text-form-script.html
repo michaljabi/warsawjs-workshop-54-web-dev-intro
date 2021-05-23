@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>c001 you-can-change-inner-text-form-script</title>
+</head>
+<body>
+   <h1>To jest tekst</h1>
+   <script>
+       const h1Element = document.querySelector('h1');
+
+       /*
+            Odkomentowanie linii :21 poniżej spowoduje zmianę tekstu:
+            "To jest tekst"
+            na ten przypisany do textContent
+
+            h1Element jest tutaj referencją do elementu DOM
+            jest to dokładnie obiekt, instancja klasy: HTMLHeadingElement
+            https://developer.mozilla.org/en-US/docs/Web/API/HTMLHeadingElement
+        */
+       // h1Element.textContent = 'Hello World 🥱';
+
+       // sprawdzam czym jest h1Element:
+       console.log(h1Element)
+       // jednak console.log() pokazuje mi w Chrome:
+       // "inspekcję tego elementu" (osadzenie na drzewie i składnię HTML)
+
+       // Sprawdzenie faktycznego API po stronie JavaScript:
+       console.dir(h1Element)
+
+       /*
+       * Ten prosty fakt - daje nam masę możliwości,
+       * okazuje się bowiem, że możemy w pełni sterować tym co się dzieje na DOM
+       * za pomocą JavaScript!
+       * Przeglądarka będzie natychmiast reagować na nasze zmiany.
+       *
+       * Każdy element na drzewie DOM posiada swoją klasę, do której konstruktora
+       * mamy dostęp z poziomu JS.
+       *
+       * Sprawdź linię poniżej
+       * */
+
+       // Dostępność konstruktora HTMLHeadingElement:
+       // console.log(h1Element instanceof HTMLHeadingElement);
+
+       // Każdy element osadzony do DOM dziedziczy po HTMLElement:
+       // console.log(h1Element instanceof HTMLElement);
+
+       // W tym układzie, w dokumentacji możemy znaleźć pola i metody
+       // Dostępne dla każdego elementu:
+       // https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement
+   </script>
+</body>
+</html>

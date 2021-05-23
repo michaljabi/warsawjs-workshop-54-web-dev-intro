@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>c006 custom-data-with-dataset</title>
+    <style>
+        div[data-num] {
+            border: 1px solid black;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <section data-this data-is data-example data-hello="world">Sprawdź też <code>console</code> 😊</section>
+        <div data-num="1">Jeden</div>
+        <div data-num="2">Dwa</div>
+        <div data-num="3">Trzy</div>
+    </div>
+    <script>
+        /*
+        * Czasem, może wystąpić potrzeba przekazania informacji z poziomu HTML do JS
+        * Jednak nie koniecznie chcemy do tego używać klasycznych atrybutów, ponieważ:
+        * - id, jest unikatowe, potrzebujemy czegoś bardziej ogólnego + możliwość przekazania danych
+        * - class nie do końca nas urządza - to dobry motyw na zaselectowanie wielu obiektów,
+        *   jednak tutaj chcemy podać jakieś informacje dodatkowe !
+        *
+        * Okazuje się że mamy do dyspozycji atrybut globalny data-*
+        * Gdzie pod * możemy wstawić niemal dowolną nazwę klucza i stosować ją jako własny "selector"
+        * Dodatkowo po = w "" możemy podać wartość tego klucza, która również zależy od nas.
+        *
+        * Dostaniemy wtedy po stronie JavaScript obiekt posiadający klucz-wartość
+        * a za wszystko odpowiada "dataset"
+        *
+        * https://developer.mozilla.org/en-US/docs/Web/API/HTMLOrForeignElement/dataset
+        * https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/data-*
+        * */
+
+        // Zobacz jak łatwo można odczytać elementy z "data-":
+        const mySection = document.querySelector('section');
+        console.log(mySection.dataset);
+
+        // pokazane są one w postaci obiektu, co znaczy że można go odczytać po polach tak:
+        console.log(mySection.dataset.hello);
+        // lub tak:
+        console.log(mySection.dataset['this']); // te wartości są puste (patrz wyżej)
+        console.log(mySection.dataset['is']);
+        // itd...
+
+        // Możemy również zaznaczyć całą grupę elementów a dopiero potem skorzystać z przypisanych im wartości
+        // Dodając eventy za pomocą pętli - dynamicznie do każdego elementu
+        const allNumDivs = document.querySelectorAll('div[data-num]') // zaznacz wszystkie div które mają data-num
+
+        // Iteruj (przejdź pętlą) po kolei przez te div, i dodaj do każdego event mouseover
+        for(const div of allNumDivs) {
+        	div.addEventListener('mouseover', (ev) => {
+        		console.log('Znaleziono taki numer:', ev.target.dataset.num)
+            })
+        }
+
+        // Teraz najedź myszką na którykolwiek div - aby zobaczyć efekt działania.
+    </script>
+</body>
+</html>

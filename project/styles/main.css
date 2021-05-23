@@ -1,0 +1,61 @@
+body {
+    font-family: "Segoe UI", "Roboto", "Arial", sans-serif;
+    padding: 0;
+    margin: 0;
+    font-size: 16pt;
+}
+
+.hero {
+    padding: 2rem 0;
+    color: white;
+    background-color: #3d9742;
+    text-align: center;
+    font-size: 18pt;
+    margin-bottom: 2em;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+.is-flex {
+    display: flex;
+    justify-content: space-around;
+}
+
+.text-small {
+    font-size: smaller;
+}
+
+.message {
+    text-align: center;
+    padding: .5em;
+    margin: 1em;
+    font-size: 2em;
+    border: 2px solid black;
+    border-radius: .3em;
+}
+
+.is-danger {
+    background-color: #de8c9c;
+    border-color: #860f27;
+    color: #860f27;
+}
+
+.is-warning {
+    background-color: #ffe08a;
+    border-color: #946c00;
+    color: #946c00;
+}
+
+.is-success {
+    background-color: #5ca561;
+    border-color: #145e3c;
+    color: #145e3c;
+}
+
+.btn-active {
+    background-color: #bcbcbc;
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>c004 dom-can-talk-to-you</title>
+</head>
+<body>
+    <div>
+        <section id="app1">
+            <div>Tekst dostępny po kliknięciu w button:</div>
+            <h2 class="text-result"></h2>
+            <label>
+                Treść: <input name="text-1"> <button>Pokaż!</button>
+            </label>
+        </section>
+        <hr style="margin: 2em 0">
+        <section id="app2">
+            <div>Tekst dostępny po wpisaniu:</div>
+            <h2 class="text-result"></h2>
+            <label>
+                Treść: <input name="text-2">
+            </label>
+        </section>
+    </div>
+    <script>
+      /*
+      * Klasy które dziedziczą po HTMLElement, dają nam dostęp do tzw. Eventów.
+      *
+      * teraz czas na połączenie wiedzy z poprzednich części,
+      * w sposób interaktywny: z wykorzystaniem eventów!!
+      * */
+
+      // Dzielimy kod na 2 "aplikacje"
+
+      // 1 układ:
+      const app1 = document.querySelector('#app1');
+      const app1ResultText = app1.querySelector('.text-result');
+      const app1InputText = app1.querySelector('input[name="text-1"]');
+      const app1ShowButton = app1.querySelector('button');
+
+      // Podpięcie eventu "on click" dla buttona wygląda następująco:
+      app1ShowButton.addEventListener('click', function() {
+	      app1ResultText.textContent = app1InputText.value;
+	      // Wyczyść wartość w polu input:
+	      // app1InputText.value = '';
+	      // Spraw żeby input był dalej aktywny:
+	      // app1InputText.focus();
+      })
+
+      // 2 układ:
+      const app2 = document.querySelector('#app2');
+      const app2ResultText = app2.querySelector('.text-result');
+      const app2InputText = app2.querySelector('input[name="text-2"]');
+
+      // Podpięcie eventu "input" dla elmentu input wygląda następująco:
+      app2InputText.addEventListener('input', function() {
+	      app2ResultText.textContent = app2InputText.value;
+      })
+
+      // https://developer.mozilla.org/en-US/docs/Web/API/EventListener
+      // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
+      // https://developer.mozilla.org/en-US/docs/Web/API/Event
+      //
+
+      // Możemy "wpinać się" w nasłuchiwanie bardzo różnych informacji (Eventów):
+      // https://developer.mozilla.org/en-US/docs/Web/Events
+
+      /*
+      Event'y domyślnie ulegają zjawisku tzw. Bubble'owania
+      Polega ono na tym, że rodzic dla Node, który emituje event - może go złapać:
+      Zobacz, app2 wychwyci fakt, że gdzieś wewnątrz emitowany jest event:
+      dodatkowo mając dostęp do argumentu przesłanego przez emitter
+      zapisanego poniżej jako parametr "ev" - mamy dostęp do faktycznego źródła
+      emisji event'u - czyli tzw. ".target" - jest to nasz input !
+
+      Zobacz poniżej:
+      */
+
+      // app2.addEventListener('input', (ev) => {
+      // 	console.log('Ktoś pisze w inpucie...', ev.target)
+      // })
+    </script>
+</body>
+</html>

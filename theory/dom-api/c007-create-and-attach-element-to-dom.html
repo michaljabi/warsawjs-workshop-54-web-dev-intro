@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>c007 create-and-attach-element-to-dom</title>
+    <style>
+        body {
+            font-family: "Segoe UI", "Roboto", "Arial", sans-serif;
+            padding: 0;
+            margin: 0;
+            font-size: 16pt;
+        }
+        .hero {
+            padding: 2rem 0;
+            color: white;
+            background-color: #3d8a97;
+            text-align: center;
+            font-size: 18pt;
+            margin-bottom: 2em;
+        }
+        .container {
+            max-width: 920px;
+            margin: 3em auto;
+        }
+    </style>
+</head>
+<body>
+    <main id="app"></main>
+    <script>
+        /*
+        * JavaScript dostarcza nam również metody aby dodawać nowe elementy do DOM
+        *
+        * Służy do tego metoda: document.createElement()
+        * Do której podajemy nazwę "tagName" elementu, jaki chcemy utworzyć.
+        *
+        * Zauważ że w przykładzie powyżej mamy tylko smutne:
+        * <main id="app"></main>
+        *
+        * Wszystkie pozostałe elementy, które widzisz na ekranie - dodał JavaScript.
+        *
+        * https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement
+        * */
+
+        const $myApp = document.getElementById('app');
+
+        const myHeroDiv = document.createElement('div');
+        myHeroDiv.className = 'hero';
+        myHeroDiv.textContent = 'Witaj w świecie JS !';
+
+        const ulList = document.createElement('ul')
+        ulList.append(makeALiElement('Dom API'))
+        ulList.append(makeALiElement('JavaScript'))
+        ulList.append(makeALiElement('Programowanie Obiektowe'))
+        ulList.append(makeALiElement('Programowanie Funkcyjne'))
+        ulList.append(makeALiElement('Dynamika'))
+        ulList.append(makeALiElement('Logika'));
+
+        const myContentSection = document.createElement('section');
+        myContentSection.className = 'container';
+        myContentSection.append(ulList)
+
+        $myApp.append(myHeroDiv)
+        $myApp.append(myContentSection)
+
+        function makeALiElement(text) {
+	        const newLi = document.createElement('li');
+	        newLi.textContent = text;
+	        newLi.addEventListener('click', () => newLi.textContent += ' ⭐');
+	        return newLi;
+        }
+    </script>
+</body>
+</html>
