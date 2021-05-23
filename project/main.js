@@ -10,3 +10,6 @@
 * */
 
 const gameTitle = 'Papier Kamień czy Nożyce ?!';
+
+const h1element = document.querySelector('h1#game-title');
+h1element.textContent = gameTitle;
