@@ -60,7 +60,7 @@ btnScissors.addEventListener('click', function() {
     -> Pokaż "przesłaną" wartość na console.log()
 */
 
-const pcChose = 'paper';
+const pcChose = 'scissors';
 
 /*
     Zadanie 5:
@@ -73,14 +73,14 @@ function playGameRound(playerChoise) {
     // console.log(playerChoise) // odebrałem wartość pod parametrem: playerChoise
     // #1 MAKE IT WORK ! - niech to działa
     // #2 Make it right - zrób to dobrze [code Refactoring]
+    const winCodition1 = playerChoise === 'paper' && pcChose === 'rock';
+    const winCodition2 = playerChoise === 'rock' && pcChose === 'scissors';
+    const winCodition3 = playerChoise === 'scissors' && pcChose === 'paper';
+    console.log(winCodition1, winCodition2, winCodition3)
     if(pcChose === playerChoise) {
         console.log('REMIS!')
-    } else if(playerChoise === 'paper' && pcChose === 'rock') {
+    } else if(winCodition1 || winCodition2 || winCodition3) {
         console.log('Wygrana!')  
-    } else if(playerChoise === 'rock' && pcChose === 'scissors') {
-        console.log('Wygrana!')  
-    } else if(playerChoise === 'scissors' && pcChose === 'paper') {
-        console.log('Wygrana!')
     } else {
         console.log('Przegrałeś !!')
     }
