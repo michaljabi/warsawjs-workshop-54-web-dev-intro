@@ -20,14 +20,16 @@ function printBox(slogan) {
 	console.log('---------');
 }
 
+// printBox('HELLO!')
+
 // W tym momencie mamy przygotowaną logikę, które pozwala nam wywołać Box z różnymi napisami:
 
 // Oto wywołania funkcji printBox, każde z innym argumentem:
-printBox('Hello');
-printBox('Motor');
-printBox(' How ');
-printBox(' are ');
-printBox(' you ');
+// printBox('Hello');
+// printBox('Motor');
+// printBox(' How ');
+// printBox(' are ');
+// printBox(' you ');
 
 // No i tak... wiadomo, akurat dobrałem takie słowa żeby idealnie mieściły się w boxie,
 // Jednak nie ma to większego znaczenia - można dokonać tzw. REFACTORINGU - poprawy działania naszej funkcji

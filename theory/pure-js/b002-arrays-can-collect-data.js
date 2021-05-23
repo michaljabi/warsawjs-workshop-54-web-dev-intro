@@ -18,7 +18,14 @@ const mutableArray = [ 'a', 'b', 'c', 'd' ];
 console.log(mutableArray.length);
 
 // Odczytanie elementu tablicy pod konkretnym indeksem:
+console.log(mutableArray[0]);
+console.log(mutableArray[1]);
 console.log(mutableArray[2]);
+console.log(mutableArray[3]);
+if(mutableArray[10000]) {
+    console.log('HEllo jest element')
+}
+console.log(mutableArray[mutableArray.length - 1]);
 
 // Modyfikacja elementu tablicy pod konkretnym indeksem:
 mutableArray[2] = 'x'

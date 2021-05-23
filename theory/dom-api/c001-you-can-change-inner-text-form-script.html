@@ -5,7 +5,7 @@
     <title>c001 you-can-change-inner-text-form-script</title>
 </head>
 <body>
-   <h1>To jest tekst</h1>
+   <h1>To jest tekst :)</h1>
    <script>
        const h1Element = document.querySelector('h1');
 
@@ -18,7 +18,7 @@
             jest to dokładnie obiekt, instancja klasy: HTMLHeadingElement
             https://developer.mozilla.org/en-US/docs/Web/API/HTMLHeadingElement
         */
-       // h1Element.textContent = 'Hello World 🥱';
+       h1Element.textContent = 'Hello World 🥱';
 
        // sprawdzam czym jest h1Element:
        console.log(h1Element)
@@ -41,10 +41,10 @@
        * */
 
        // Dostępność konstruktora HTMLHeadingElement:
-       // console.log(h1Element instanceof HTMLHeadingElement);
+       console.log(h1Element instanceof HTMLHeadingElement);
 
        // Każdy element osadzony do DOM dziedziczy po HTMLElement:
-       // console.log(h1Element instanceof HTMLElement);
+       console.log(h1Element instanceof HTMLElement);
 
        // W tym układzie, w dokumentacji możemy znaleźć pola i metody
        // Dostępne dla każdego elementu:

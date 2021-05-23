@@ -25,7 +25,7 @@
  * */
 
 
-const myNumber = 0;
+const myNumber = 1;
 
 console.log(myNumber === 0);
 console.log(myNumber === 1);

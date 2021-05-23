@@ -9,10 +9,15 @@
  * Jeśli podasz więcej niż 1 argument, to zobaczysz te elementy rozdzielone spacją
  */
 
-let welcomeMessage = 'Hello World';
-const goodbyeMessage = 'Hello World';
+let welcomeMessage = 'Hello World :) !!!';
+welcomeMessage = '!';
 
 console.log(welcomeMessage);
+console.log(typeof welcomeMessage);
+
+const goodbyeMessage = 'Hello World';
+
+console.log(90 + 100 + 200 + 300);
 console.log(goodbyeMessage);
 
 console.log('to', 'jest', 'przekazanie', 'wielu', 'argumentów', 'typu', 'string');

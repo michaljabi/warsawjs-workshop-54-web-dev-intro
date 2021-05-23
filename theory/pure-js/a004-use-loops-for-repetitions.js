@@ -67,11 +67,17 @@ console.log('---------')
 
 // Ale to powtórzenie 3x tego samego kodu.
 // Dzięki pętli która obróci się dokładnie 3 razy - możemy osiągnąć ten sam efekt, pisząc 3x mniej kodu:
+// x = 3
+
+// x = x - 1;
+// x -= 1;
+// x--;
 for(let x = 3; x > 0; x--) {
 	console.log('---------')
 	console.log('| Hello |')
 	console.log('---------')
 }
+// console.log(x);
 // JavaScript REPL pokazuje ten kod jakby boxy były obok siebie - jest to uproszczenie,
 // Tak na prawdę są one jedno pod drugim zobacz używając Node.js (z terminala):
 // node a004-use-loops-for-repetitions.js
