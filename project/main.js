@@ -60,12 +60,41 @@ btnScissors.addEventListener('click', function() {
     -> Pokaż "przesłaną" wartość na console.log()
 */
 
-const pcChose = 'paper';
+const pcChose = 'rock';
+
+/*
+    Zadanie 5:
+    Zdefiniuj logikę zwracania wygranej i przegranej
+    w oparciu o wybór usera i komputera
+    
+*/
 
 function playGameRound(playerChoise) {
-    console.log(playerChoise) // odebrałem wartość pod parametrem: playerChoise
+    // console.log(playerChoise) // odebrałem wartość pod parametrem: playerChoise
+    // #1 MAKE IT WORK !
     if(pcChose === playerChoise) {
         console.log('REMIS!')
+    } else if(playerChoise === 'paper') {
+        if(pcChose === 'rock') {
+            console.log('Wygrana!')  
+        }
+        else {
+            console.log('Przegrałeś !!')
+        }
+    } else if(playerChoise === 'rock') {
+        if(pcChose === 'scissors') {
+            console.log('Wygrana!')  
+        }
+        else {
+            console.log('Przegrałeś !!')
+        }
+    } else if(playerChoise === 'scissors') {
+        if(pcChose === 'paper') {
+            console.log('Wygrana!')  
+        }
+        else {
+            console.log('Przegrałeś !!')
+        }
     } 
     /*
     else if() {
