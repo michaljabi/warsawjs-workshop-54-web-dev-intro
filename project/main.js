@@ -39,39 +39,18 @@ const btnScissors = document.querySelector('#btn-scissors');
     odpowiednie wartości w zależności od wyboru: rock, paper, scissors
 */
 
-const pcChose = 'paper';
+
 
 btnPaper.addEventListener('click', function() {
-    console.log('paper')
-    if(pcChose === 'paper') {
-        console.log('REMIS!')
-    } else if(pcChose === 'scissors') {
-        console.log('PRZEGRANA !')
-    } else {
-        console.log('WYGRANA !')
-    }
+    playGameRound('paper') // przesyłam argument (wartość: 'paper')
 });
 
 btnRock.addEventListener('click', function() {
-    console.log('rock')
-    if(pcChose === 'rock') {
-        console.log('REMIS!')
-    } else if(pcChose === 'scissors') {
-        console.log('PRZEGRANA !')
-    } else {
-        console.log('WYGRANA !')
-    }
+    playGameRound('rock')
 });
 
 btnScissors.addEventListener('click', function() {
-    console.log('scissors')
-    if(pcChose === 'scissors') {
-        console.log('REMIS!')
-    } else if(pcChose === 'rock') {
-        console.log('PRZEGRANA !')
-    } else {
-        console.log('WYGRANA !')
-    }
+    playGameRound('scissors')
 });
 
 /*
@@ -80,4 +59,26 @@ btnScissors.addEventListener('click', function() {
     Pod nazwanym parametrem będziemy mieć 'rock' / 'paper' lub 'scissors'
     -> Pokaż "przesłaną" wartość na console.log()
 */
+
+const pcChose = 'paper';
+
+function playGameRound(playerChoise) {
+    console.log(playerChoise) // odebrałem wartość pod parametrem: playerChoise
+    if(pcChose === playerChoise) {
+        console.log('REMIS!')
+    } 
+    /*
+    else if() {
+        console.log('Wygrana!')
+    } else {
+        console.log('Przegrałeś !!')
+    }
+    */
+    // Warunki wygranej
+    // user: paper => rock
+    // user: rock => scissor
+    // user: scissors => paper
+    // Wszysko pozoatałe:
+    // to przegrana!
+}
 
