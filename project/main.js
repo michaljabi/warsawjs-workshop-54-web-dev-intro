@@ -30,6 +30,7 @@ h1element.textContent = gameTitle;
 const btnPaper = document.getElementById('btn-paper');
 const btnRock = document.querySelector('#btn-rock');
 const btnScissors = document.querySelector('#btn-scissors');
+const infoBox = document.querySelector('#info');
 
 // console.log(btnPaper, btnRock, btnScissors)
 
@@ -60,7 +61,14 @@ btnScissors.addEventListener('click', function() {
     -> Pokaż "przesłaną" wartość na console.log()
 */
 
-const pcChose = 'scissors';
+function makePcChoice() {
+    // ? jak losować z wartości 'rock' 'paper' 'scissors'
+    const choices = ['rock', 'paper', 'scissors'];
+    // losuj liczbe w zakresie 0 - 2
+    // losuj liczbe w zakresie 0 - choces.lenght - 1
+    const randomIndex = Math.floor(Math.random() * choices.length);
+    return choices[randomIndex]
+}
 
 /*
     Zadanie 5:
@@ -69,20 +77,47 @@ const pcChose = 'scissors';
     
 */
 
+/*
+    Zadanie 6:
+    Zrób losowanie indexu w oparciu o Math.random() i Math.flor() oraz długość tablicy!
+*/
+
 function playGameRound(playerChoise) {
     // console.log(playerChoise) // odebrałem wartość pod parametrem: playerChoise
     // #1 MAKE IT WORK ! - niech to działa
     // #2 Make it right - zrób to dobrze [code Refactoring]
+    const pcChose = makePcChoice();
     const winCodition1 = playerChoise === 'paper' && pcChose === 'rock';
     const winCodition2 = playerChoise === 'rock' && pcChose === 'scissors';
     const winCodition3 = playerChoise === 'scissors' && pcChose === 'paper';
     console.log(winCodition1, winCodition2, winCodition3)
     if(pcChose === playerChoise) {
         console.log('REMIS!')
+        infoBox.innerHTML = `
+        <div class="message is-warning">
+            <div class="text-small">
+                Komputer wybrał: <img width="64" src="assets/${pcChose}.svg">
+            </div>
+        </div> 
+        `
     } else if(winCodition1 || winCodition2 || winCodition3) {
         console.log('Wygrana!')  
+        infoBox.innerHTML = `
+        <div class="message is-success">
+            <div class="text-small">
+                Komputer wybrał: <img width="64" src="assets/${pcChose}.svg">
+            </div>
+        </div> 
+        `
     } else {
         console.log('Przegrałeś !!')
+        infoBox.innerHTML = `
+        <div class="message is-danger">
+            <div class="text-small">
+                Komputer wybrał: <img width="64" src="assets/${pcChose}.svg">
+            </div>
+        </div> 
+        `
     }
     /*
     else if() {
